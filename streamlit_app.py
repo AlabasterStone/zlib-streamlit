@@ -44,7 +44,7 @@ async def main():
     #    { 'id': '456', ... },
     #    { 'id': '678', ... },
     # ]
-    print(f'{current_set[]}')
+    print(f'{current_set}')
     # switch pages explicitly
     await paginator.next_page()
 
