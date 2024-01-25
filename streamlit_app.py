@@ -10,7 +10,7 @@ number = st.slider('数量限制',1,100)
 book_list = list()
 search_button = st.button('搜索')
 
-if search_button.clicked:
+if search_button:
   z = Zlibrary()
   z.login(email=email, password=password)
   res = z.search(message=book_name,limit=number)
