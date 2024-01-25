@@ -202,6 +202,7 @@ class Zlibrary:
 
     def __getBookFile(self, bookid: Union[int, str], hashid: str):
         response = self.__makeGetRequest(f"/eapi/book/{bookid}/{hashid}/file")
+        print(response['file'])
         filename = response['file']['description']
 
         try:
