@@ -1,6 +1,14 @@
 from zlibrary import Zlibrary
 import streamlit as st
 
+global email
+global password
+global book_name
+global number
+global book_list
+global res
+global choice
+
 if 'stage' not in st.session_state:
     st.session_state.stage = 0
 def set_state(i):
