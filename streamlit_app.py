@@ -15,8 +15,15 @@ if st.button('搜索'):
   for book in res['books']:
     book_list.append(f'{book["title"]}|{book["extension"]}|{book["language"]}')
   choice = st.selectbox('选择下载',book_list)
-  print(choice)
+  st.text(choice)
   filename, filecontent = z.downloadBook(res['books'][book_list.index(choice)])
-  print(filename)
-  st.download_button("下载文件", filecontent)
-  print("downloading...")
+  with open(filename, "wb") as bookfile:
+    bookfile.write(filecontent)
+  st.text(filename)
+  with open(filename, "rb") as file:
+      btn = st.download_button(
+            label="下载文件",
+            data=file,
+            file_name=filename
+          )
+  st.text("downloading...")
