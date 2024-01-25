@@ -2,11 +2,10 @@ from zlibrary import Zlibrary
 import streamlit as st
 
 if 'stage' not in st.session_state:
-    st.text("init")
     st.session_state.stage = 0
 def set_state(i):
     st.session_state.stage = i
-st.text(st.session_state.stage)
+
 if st.session_state.stage >= 0:
     st.title('Zlibrary API hosted by tourkveg')
     email = st.text_input('email')
