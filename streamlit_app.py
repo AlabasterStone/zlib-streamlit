@@ -23,9 +23,10 @@ if st.session_state.stage == 0:
     number = st.slider('数量限制',1,100)
     book_list = list()
     st.button('搜索', on_click=set_state,args=[1])
-st.text(email_)
+
 if st.session_state.stage>=1:
   z = Zlibrary()
+  st.text(email_)
   z.login(email=email_, password=password_)
   res = z.search(message=book_name,limit=number)
   for book in res['books']:
