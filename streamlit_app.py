@@ -1,8 +1,11 @@
 import zlibrary
 import asyncio
 
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
 
 async def main():
+    
     lib = zlibrary.AsyncZlib()
     # zlibrary requires a singlelogin account in order to access the website
     await lib.login("mulanhuayun@163.com", "7811204630zhym")
