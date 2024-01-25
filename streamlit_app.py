@@ -10,10 +10,11 @@ global res
 global choice
 
 if 'stage' not in st.session_state:
+    print("init")
     st.session_state.stage = 0
 def set_state(i):
     st.session_state.stage = i
-
+print(st.session_state.stage)
 if st.session_state.stage == 0:
     st.title('Zlibrary API hosted by tourkveg')
     email_ = st.text_input('email')
