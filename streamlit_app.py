@@ -6,9 +6,16 @@ email = st.text_input('email')
 password = st.text_input('password', type='password')
 book_name = st.text_input('书名')
 number = st.slider('数量限制',1,100)
-
 book_list = list()
-def search():
+
+if 'clicked' not in st.session_state:
+    st.session_state.clicked = False
+
+def click_button():
+    st.session_state.clicked = True
+st.button('搜索', on_click=click_button)
+
+if st.session_state.clicked:
   z = Zlibrary()
   z.login(email=email, password=password)
   res = z.search(message=book_name,limit=number)
@@ -25,5 +32,5 @@ def search():
               data=file,
               file_name=file_name
             )
-st.button('搜索', on_click=search)
+
 
