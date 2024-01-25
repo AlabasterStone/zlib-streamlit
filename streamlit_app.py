@@ -8,7 +8,9 @@ book_name = st.text_input('书名')
 number = st.slider('数量限制',1,100)
 
 book_list = list()
-if st.button('搜索'):
+search_button = st.button('搜索')
+
+if search_button.clicked:
   z = Zlibrary()
   z.login(email=email, password=password)
   res = z.search(message=book_name,limit=number)
