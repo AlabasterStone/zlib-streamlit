@@ -20,9 +20,9 @@ if st.button('搜索'):
       filename, filecontent = z.downloadBook(res['books'][book_list.index(choice)])
       file_name = f"book.{filename.split('.')[1]}"
       with open(file_name, "wb") as bookfile:
-      with open(file_name, "rb") as file:
-          btn = st.download_button(
-                label="下载文件",
-                data=file,
-                file_name=file_name
-              )
+        with open(file_name, "rb") as file:
+            btn = st.download_button(
+                  label="下载文件",
+                  data=file,
+                  file_name=file_name
+                )
