@@ -1,24 +1,16 @@
 from zlibrary import Zlibrary
 import streamlit as st
 
-global email
-global password
-global book_name
-global number
-global book_list
-global res
-global choice
-
 if 'stage' not in st.session_state:
     st.text("init")
     st.session_state.stage = 0
 def set_state(i):
     st.session_state.stage = i
 st.text(st.session_state.stage)
-if st.session_state.stage == 0:
+if st.session_state.stage >= 0:
     st.title('Zlibrary API hosted by tourkveg')
-    email_ = st.text_input('email')
-    password_ = st.text_input('password', type='password')
+    email = st.text_input('email')
+    password = st.text_input('password', type='password')
     book_name = st.text_input('书名')
     number = st.slider('数量限制',1,100)
     book_list = list()
@@ -26,8 +18,7 @@ if st.session_state.stage == 0:
 
 if st.session_state.stage>=1:
   z = Zlibrary()
-  st.text(email_)
-  z.login(email=email_, password=password_)
+  z.login(email=email, password=password)
   res = z.search(message=book_name,limit=number)
   for book in res['books']:
     book_list.append(f'{book["title"]}|{book["extension"]}|{book["language"]}')
