@@ -25,11 +25,12 @@ if st.session_state.stage>=1:
   choice = st.selectbox('选择下载',book_list)
   st.button('确认',on_click=set_state,args=[2])
 
-if st.session_state.stage>=2:    
-  filename, filecontent = z.downloadBook(res['books'][book_list.index(choice)])
-  file_name = f"book.{filename.split('.')[1]}"
-  with open(file_name, "wb") as bookfile:
-    bookfile.write(filecontent)
+if st.session_state.stage>=2: 
+  with st.spinner("downloading..."):
+      filename, filecontent = z.downloadBook(res['books'][book_list.index(choice)])
+      file_name = f"book.{filename.split('.')[1]}"
+      with open(file_name, "wb") as bookfile:
+        bookfile.write(filecontent)
   with open(file_name, "rb") as file:
     btn = st.download_button(
               label="下载文件",
