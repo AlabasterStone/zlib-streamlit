@@ -16,8 +16,8 @@ def set_state(i):
 
 if st.session_state.stage == 0:
     st.title('Zlibrary API hosted by tourkveg')
-    email = st.text_input('email')
-    password = st.text_input('password', type='password')
+    email_ = st.text_input('email')
+    password_ = st.text_input('password', type='password')
     book_name = st.text_input('书名')
     number = st.slider('数量限制',1,100)
     book_list = list()
@@ -25,7 +25,7 @@ if st.session_state.stage == 0:
 
 if st.session_state.stage>=1:
   z = Zlibrary()
-  z.login(email=email, password=password)
+  z.login(email=email_, password=password_)
   res = z.search(message=book_name,limit=number)
   for book in res['books']:
     book_list.append(f'{book["title"]}|{book["extension"]}|{book["language"]}')
