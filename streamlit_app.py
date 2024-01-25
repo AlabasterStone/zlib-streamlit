@@ -20,10 +20,11 @@ if st.button('搜索'):
   with open(filename, "wb") as bookfile:
     bookfile.write(filecontent)
   st.text(filename)
-  with open(filename, "rb") as file:
+  file_name = f'book.{filename.split('.')[1]}'
+  with open(file_name, "rb") as file:
       btn = st.download_button(
             label="下载文件",
             data=file,
-            file_name=filename
+            file_name=file_name
           )
   st.text("downloading...")
