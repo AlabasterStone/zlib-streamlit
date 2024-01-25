@@ -1,5 +1,6 @@
 import requests
 from typing import Union, Dict
+import streamlit as st
 
 class Zlibrary:
 
@@ -202,7 +203,7 @@ class Zlibrary:
 
     def __getBookFile(self, bookid: Union[int, str], hashid: str):
         response = self.__makeGetRequest(f"/eapi/book/{bookid}/{hashid}/file")
-        print(response['file'])
+        st.write(response['file'])
         filename = response['file']['description']
 
         try:
