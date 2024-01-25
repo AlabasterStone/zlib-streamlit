@@ -17,10 +17,10 @@ if st.button('搜索'):
   choice = st.selectbox('选择下载',book_list)
   st.text(choice)
   filename, filecontent = z.downloadBook(res['books'][book_list.index(choice)])
-  with open(filename, "wb") as bookfile:
-    bookfile.write(filecontent)
-  st.text(filename)
   file_name = f"book.{filename.split('.')[1]}"
+  with open(file_name, "wb") as bookfile:
+    bookfile.write(filecontent)
+  st.text(file_name)
   with open(file_name, "rb") as file:
       btn = st.download_button(
             label="下载文件",
