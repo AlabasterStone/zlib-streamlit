@@ -28,7 +28,7 @@ if st.session_state.stage>=2:
   with st.spinner("downloading..."):
       filename, filecontent = z.downloadBook(res['books'][book_list.index(choice)])
       file_name = f"book.{filename.split('.')[1]}"
-      with open(file_name, "wb") as bookfile:
+      with open(filename, "wb") as bookfile:
         bookfile.write(filecontent)
   with open(file_name, "rb") as file:
     btn = st.download_button(
