@@ -30,11 +30,11 @@ if st.session_state.stage>=2:
       file_name = f"book.{filename.split('.')[1]}"
       with open(filename, "wb") as bookfile:
         bookfile.write(filecontent)
-  with open(file_name, "rb") as file:
+  with open(filename, "rb") as file:
     btn = st.download_button(
               label="下载文件",
               data=file,
-              file_name=file_name
+              file_name=filename
             )
 
 
