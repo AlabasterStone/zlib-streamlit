@@ -8,8 +8,10 @@ def set_state(i):
 
 if st.session_state.stage >= 0:
     st.title('Zlibrary API\n made with ❤️ by tourkveg')
-    email = st.text_input('email')
-    password = st.text_input('password', type='password')
+    #email = st.text_input('email')
+    email = st.secrets['ZLIB_EMAIL']
+    #password = st.text_input('password', type='password')
+    password = st.secrets['ZLIB_PASSWORD']
     book_name = st.text_input('书名')
     number = st.slider('数量限制',1,100)
     book_list = list()
